@@ -5,7 +5,7 @@ class Crm extends React.Component {
   render(){
     return(
       <div className={classes.Crm}>
-      cc
+
       </div>
     )
   }
