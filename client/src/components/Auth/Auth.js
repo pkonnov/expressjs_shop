@@ -8,15 +8,10 @@ class Auth extends React.Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      message: ''
     }
   }
-
-  // componentDidMount(){
-  //   fetch('http://localhost:3000/api/auth/login')
-  //     .then(res => res.text())
-  //     .then(res => this.setState({message: res}))
-  // }
 
   handleInputChange = e => {
     const {value, name} = e.target;
@@ -27,7 +22,7 @@ class Auth extends React.Component {
 
   submitHandler = e => {
     e.preventDefault()
-    fetch("http://localhost:3000/api/auth/login", {
+    fetch("/api/auth/login", {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
@@ -36,16 +31,19 @@ class Auth extends React.Component {
     })
     .then(res => {
       if(res.status === 200){
-        this.props.history.push('/')
+        this.props.history.push('/overview')
+        console.log(this.props)
         console.log(res)
-      }else{
+      } else if(res.status === 401){
+        this.setState({message: 'you are not authorized'})
+      } else {
         const error = new Error(res.error)
         throw error
       }
     })
     .catch(err => {
       console.error(err)
-      alert('Error logging in please try again')
+      alert('Error')
     })
   }
 
@@ -84,7 +82,7 @@ class Auth extends React.Component {
             >
             зарегистрироваться
             </button>
-            {this.state.message}
+            <span className={classes.error}>{this.state.message}</span>
           </form>
         </div>
       </div>

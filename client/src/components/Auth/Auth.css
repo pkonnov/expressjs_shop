@@ -14,3 +14,10 @@ form{
 form > input {
   margin:5px;
 }
+
+.error {
+  color: red;
+  margin: 10px 0 10px 0;
+  background: #ff000017;
+  border-radius: 5px;
+}

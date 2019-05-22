@@ -13,9 +13,10 @@ function App() {
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/login">Login</NavLink></li>
+          <li><NavLink to="/overview">Overview</NavLink></li>
         </ul>
         <Route path="/" exact component={Crm} />
-        <Route path="/login" exact component={Auth} />
+        <Route path="/login" component={Auth} />
       </Layout>
     </div>
   );
