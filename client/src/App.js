@@ -6,20 +6,28 @@ import Auth from './components/Auth/Auth'
 import './App.css';
 
 
-function App() {
-  return (
-    <div className="App">
-      <Layout>
-        <ul>
-          <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/login">Login</NavLink></li>
-          <li><NavLink to="/overview">Overview</NavLink></li>
-        </ul>
-        <Route path="/" exact component={Crm} />
-        <Route path="/login" component={Auth} />
-      </Layout>
-    </div>
-  );
+class App extends React.Component {
+
+  checkAuth(){
+    return this.props.loggingIn
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <Layout>
+          <ul>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/login">Login</NavLink></li>
+            <li><NavLink to="/overview">Overview</NavLink></li>
+          </ul>
+          <Route path="/" exact component={Crm} />
+          <Route path="/overivew" />
+          <Route path="/login" component={Auth} />
+        </Layout>
+      </div>
+    );
+  }
 }
 
 export default App;

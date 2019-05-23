@@ -57,3 +57,7 @@ module.exports.register = async function(req, res) {
   }
 
 }
+
+// module.export.checkAuth = async function(req, res) {
+//   const checkToken = User.findOne()
+// }
