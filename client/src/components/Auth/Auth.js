@@ -95,8 +95,8 @@ class Auth extends React.Component {
             >
             зарегистрироваться
             </button>
-            <span className={classes.error}>{this.state.message}</span>
           </form>
+           <span className={classes.error}>{this.state.message}</span>
         </div>
       </div>
     )
