@@ -16,9 +16,9 @@ module.exports.login = async function(req, res) {
         userId: candidate._id
       }, keys.jwt, {expiresIn: 60*60})
 
-      res.status(200).json({
-        token: `Bearer ${token}`
-      })
+      res.cookie('token', 
+      {token: `Bearer ${token}`}, {httpOnly:false})
+        .sendStatus(200)
     } else {
       res.status(401).json({
         message: 'Passwords do not match'

@@ -22,10 +22,6 @@ class Auth extends React.Component {
     })
   }
 
-  getCookies = (ck) => {
-      return  
-  }
-
   submitHandler = e => {
     e.preventDefault()
     const {email, password} = this.state
@@ -44,8 +40,6 @@ class Auth extends React.Component {
         })
         .then(res => {
         if(res.status === 200){
-            this.props.history.push('/overview')
-            console.log(this.props)
             console.log(res)
         } else if(res.status === 401){
             this.setState({message: 'you are not authorized'})
@@ -75,8 +69,9 @@ class Auth extends React.Component {
              />
 
             <Input
-               label="Password"
+               label="password"
                name="password"
+               type="password"
                value={this.state.password}
                onChange={this.handleInputChange}
                errorMessage

@@ -17,6 +17,7 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
 app.use(passport.initialize())
 require('./middleware/passport')(passport)
 
+
 app.use(require('morgan')('dev'))
 app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.urlencoded({extended: true}))
@@ -28,6 +29,5 @@ app.use('/api/order', orderRoutes)
 app.use('/api/category', categoryRoutes)
 app.use('/api/position', positionRoutes)
 app.use('/api/analytics', analyticsRoutes)
-
 
 module.exports = app
